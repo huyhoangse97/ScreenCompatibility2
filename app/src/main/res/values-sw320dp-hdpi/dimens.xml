@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_weather_name">20sp</dimen>
+    <dimen name="tv_request_text_size">20sp</dimen>
+    <dimen name="tv_request_padding">5sp</dimen>
+    <dimen name="tv_temperature_text_size">16sp</dimen>
+    <dimen name="et_temperature_width">255sp</dimen>
+    <dimen name="et_temperature_text_size">20sp</dimen>
+    <dimen name="ic_temperature_width">35sp</dimen>
+    <dimen name="ic_temperature_height">35sp</dimen>
+    <dimen name="btn_text_size">20sp</dimen>
+    <dimen name="layout_margin">5sp</dimen>
+</resources>

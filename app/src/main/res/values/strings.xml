@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LearningMVP</string>
+    <string name="default_weather_information">What is weather?</string>
+    <string name="request_weather_params">Enter current weather parameters</string>
+    <string name="tv_temperature"><u>Current temperature:</u></string>
+    <string name="hint_temperature">0</string>
+    <string name="celsius">Celsius</string>
+    <string name="btn_weather">Forecast</string>
+    <string name="tv_humidity"><u>Current humidity:</u></string>
+</resources>

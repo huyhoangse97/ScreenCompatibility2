@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/layout_margin"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:id="@+id/iv_weather"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="8"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:background="@drawable/weather_background_2"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/tv_weather_name"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/default_weather_information"
+            android:textSize="@dimen/tv_weather_name"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/tv_request_padding"
+            android:gravity="center_horizontal"
+            android:text="@string/request_weather_params"
+            android:textSize="@dimen/tv_request_text_size"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            android:background="@color/blue_200" />
+
+        <LinearLayout
+            android:id="@+id/rl_temperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tv_temperature_text_size"
+                android:textStyle="bold"
+                android:textColor="@color/blue_400"
+                android:text="@string/tv_temperature"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_temperature"
+                    android:layout_width="@dimen/et_temperature_width"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_temperature"
+                    android:autofillHints="0"
+                    android:inputType="numberDecimal"
+                    android:textSize="@dimen/et_temperature_text_size"/>
+
+                <ImageView
+                    android:layout_width="@dimen/ic_temperature_width"
+                    android:layout_height="@dimen/ic_temperature_height"
+                    android:background="@drawable/celsius"
+                    android:contentDescription="@string/celsius" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tv_temperature_text_size"
+                android:textStyle="bold"
+                android:textColor="@color/blue_400"
+                android:text="@string/tv_humidity"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_humidity"
+                    android:layout_width="@dimen/et_temperature_width"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_temperature"
+                    android:autofillHints="0"
+                    android:inputType="numberDecimal"
+                    android:textSize="@dimen/et_temperature_text_size"/>
+
+                <ImageView
+                    android:layout_width="@dimen/ic_temperature_width"
+                    android:layout_height="@dimen/ic_temperature_height"
+                    android:background="@drawable/humidity"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/celsius" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_forecast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/btn_weather"
+            android:textSize="@dimen/btn_text_size"
+            android:backgroundTint="@color/blue_400"
+            tools:targetApi="lollipop" />
+    </LinearLayout>
+
+</LinearLayout>
