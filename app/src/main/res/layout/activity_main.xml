@@ -1,151 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/layout_margin"
-    android:orientation="vertical"
+    android:background="@drawable/layout_border"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_banner"
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_weight="4"
-        android:orientation="vertical"
+        app:layout_constraintVertical_weight="3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cl_input"
         >
 
         <ImageView
-            android:id="@+id/iv_weather"
+            android:id="@+id/iv_banner"
             android:layout_width="match_parent"
             android:layout_height="0sp"
-            android:layout_weight="8"
+            app:layout_constraintVertical_weight="4"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:background="@drawable/weather_background_2"
-            tools:ignore="NestedWeights" />
+            android:src="@drawable/weather_background_2"
+            android:background="@drawable/layout_corner_radius_10sp"
+            tools:ignore="NestedWeights"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_weather_name"/>
 
         <TextView
             android:id="@+id/tv_weather_name"
             android:layout_width="match_parent"
             android:layout_height="0sp"
-            android:layout_weight="2"
+            app:layout_constraintVertical_weight="1"
             android:gravity="center"
             android:text="@string/default_weather_information"
             android:textSize="@dimen/tv_weather_name"
             android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/iv_banner"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_input"
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_weight="3"
-        android:gravity="center"
-        android:orientation="vertical"
+        app:layout_constraintVertical_weight="4"
+        app:layout_constraintTop_toBottomOf="@+id/cl_banner"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ll_forecast_button"
         >
 
-        <TextView
-            android:id="@+id/tv_request"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/tv_request_padding"
-            android:gravity="center_horizontal"
-            android:text="@string/request_weather_params"
-            android:textSize="@dimen/tv_request_text_size"
-            android:textStyle="italic"
-            android:textColor="@color/black"
-            android:background="@color/blue_200" />
-
-        <LinearLayout
-            android:id="@+id/rl_temperature"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
 
             <TextView
-                android:id="@+id/tv_temperature"
+                android:id="@+id/tv_request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/tv_temperature_text_size"
-                android:textStyle="bold"
-                android:textColor="@color/blue_400"
-                android:text="@string/tv_temperature"/>
+                android:padding="@dimen/tv_request_padding"
+                android:gravity="center_horizontal"
+                android:text="@string/request_weather_params"
+                android:textSize="@dimen/tv_request_text_size"
+                android:textStyle="italic"
+                android:textColor="@color/black"
+                android:background="@color/blue_200"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_temperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/tv_request"
+                app:layout_constraintLeft_toLeftOf="parent">
 
-                <EditText
-                    android:id="@+id/et_temperature"
-                    android:layout_width="@dimen/et_temperature_width"
+                <TextView
+                    android:id="@+id/tv_temperature"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_temperature"
-                    android:autofillHints="0"
-                    android:inputType="numberDecimal"
-                    android:textSize="@dimen/et_temperature_text_size"/>
+                    android:textSize="@dimen/tv_temperature_text_size"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue_400"
+                    android:text="@string/tv_temperature"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-                <ImageView
-                    android:layout_width="@dimen/ic_temperature_width"
-                    android:layout_height="@dimen/ic_temperature_height"
-                    android:background="@drawable/celsius"
-                    android:contentDescription="@string/celsius" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/rl_humidity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
-
-            <TextView
-                android:id="@+id/tv_humidity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/tv_temperature_text_size"
-                android:textStyle="bold"
-                android:textColor="@color/blue_400"
-                android:text="@string/tv_humidity"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_humidity"
-                    android:layout_width="@dimen/et_temperature_width"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_temperature"
-                    android:autofillHints="0"
-                    android:inputType="numberDecimal"
-                    android:textSize="@dimen/et_temperature_text_size"/>
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_temperature">
 
-                <ImageView
-                    android:layout_width="@dimen/ic_temperature_width"
-                    android:layout_height="@dimen/ic_temperature_height"
-                    android:background="@drawable/humidity"
-                    android:scaleType="fitCenter"
-                    android:contentDescription="@string/celsius" />
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/et_temperature"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHorizontal_weight="7"
+                        android:hint="@string/hint_temperature"
+                        android:autofillHints="0"
+                        android:inputType="numberDecimal"
+                        android:textSize="@dimen/et_temperature_text_size"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/ic_temperature"/>
 
-        </LinearLayout>
+                    <ImageView
+                        android:id="@+id/ic_temperature"
+                        android:layout_width="@dimen/ic_temperature_width"
+                        android:layout_height="@dimen/ic_temperature_height"
+                        android:background="@drawable/celsius"
+                        android:contentDescription="@string/celsius"
+                        app:layout_constraintLeft_toRightOf="@id/et_temperature"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
 
-    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/cl_temperature">
+
+                <TextView
+                    android:id="@+id/tv_humidity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/tv_temperature_text_size"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue_400"
+                    android:text="@string/tv_humidity"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_humidity">
+
+                    <EditText
+                        android:id="@+id/et_humidity"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHorizontal_weight="7"
+                        android:hint="@string/hint_temperature"
+                        android:autofillHints="0"
+                        android:inputType="numberDecimal"
+                        android:textSize="@dimen/et_temperature_text_size"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/ic_humidity"/>
+
+                    <ImageView
+                        android:id="@+id/ic_humidity"
+                        android:layout_width="@dimen/ic_temperature_width"
+                        android:layout_height="@dimen/ic_temperature_height"
+                        android:background="@drawable/humidity"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="@string/celsius"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/et_humidity"
+                        app:layout_constraintRight_toRightOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:id="@+id/ll_forecast_button"
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_weight="1"
+        app:layout_constraintVertical_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_input"
+        app:layout_constraintBottom_toBottomOf="parent">
         <Button
             android:id="@+id/btn_forecast"
             android:layout_width="wrap_content"
@@ -157,4 +207,4 @@
             tools:targetApi="lollipop" />
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="img_banner_width">1000px</dimen>
+    <dimen name="img_banner_height">270sp</dimen>
     <dimen name="tv_weather_name">28sp</dimen>
     <dimen name="tv_request_text_size">26sp</dimen>
     <dimen name="tv_request_padding">10sp</dimen>
